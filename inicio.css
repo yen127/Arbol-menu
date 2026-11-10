@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px 15px;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: radial-gradient(circle at top, #1a2a4a, #0b1020);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ========== ENCABEZADO ========== */
+.encabezado {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.estrella-titulo {
+  font-size: 40px;
+  color: #ffd700;
+  animation: brillo 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes brillo {
+  from { text-shadow: 0 0 4px #ffd700; }
+  to   { text-shadow: 0 0 20px #fff3a0, 0 0 30px #ffd700; }
+}
+
+.encabezado h1 {
+  font-size: clamp(30px, 7vw, 50px);
+  margin: 5px 0;
+  color: #ffeb3b;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+}
+
+.encabezado p {
+  margin: 0;
+  font-size: clamp(16px, 4vw, 20px);
+  font-style: italic;
+}
+
+/* ========== TARJETAS ========== */
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tarjeta {
+  flex: 1 1 260px;
+  max-width: 330px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px 25px;
+  border-radius: 14px;
+  color: white;
+  text-decoration: none;
+  border: 4px solid #efb810;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Franja de bastón de caramelo */
+.tarjeta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: repeating-linear-gradient(45deg, #fff 0 10px, #d50000 10px 20px);
+}
+
+/* Fondos con copos de nieve */
+.tarjeta.t1 {
+  background:
+    radial-gradient(rgba(255,255,255,0.35) 2px, transparent 3px) 0 0 / 24px 24px,
+    radial-gradient(rgba(255,255,255,0.2) 1.5px, transparent 2.5px) 12px 12px / 24px 24px,
+    linear-gradient(160deg, #2e7d32, #0f3d14);
+}
+.tarjeta.t2 {
+  background:
+    radial-gradient(rgba(255,255,255,0.35) 2px, transparent 3px) 0 0 / 24px 24px,
+    radial-gradient(rgba(255,255,255,0.2) 1.5px, transparent 2.5px) 12px 12px / 24px 24px,
+    linear-gradient(160deg, #d32f2f, #6d0000);
+}
+
+.lazo {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  font-size: 30px;
+  transform: rotate(15deg);
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.6), 0 0 22px rgba(239,184,16,0.5);
+}
+
+.tarjeta-icono {
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  font-size: 48px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px dashed rgba(255,255,255,0.6);
+}
+
+.tarjeta:hover .tarjeta-icono {
+  animation: balanceo 0.6s ease-in-out;
+}
+
+@keyframes balanceo {
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
+}
+
+.tarjeta h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+
+.tarjeta p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.tarjeta-boton {
+  margin-top: auto;
+  background: #efb810;
+  color: #222;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* ========== NIEVE ========== */
+.nieve span {
+  position: fixed;
+  top: -10px;
+  width: 7px;
+  height: 7px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: caer linear infinite;
+}
+.nieve span:nth-child(1)  { left: 5%;  animation-duration: 9s; }
+.nieve span:nth-child(2)  { left: 15%; animation-duration: 12s; animation-delay: 2s; width: 4px; height: 4px; }
+.nieve span:nth-child(3)  { left: 25%; animation-duration: 8s;  animation-delay: 4s; }
+.nieve span:nth-child(4)  { left: 38%; animation-duration: 11s; animation-delay: 1s; width: 5px; height: 5px; }
+.nieve span:nth-child(5)  { left: 50%; animation-duration: 10s; animation-delay: 3s; }
+.nieve span:nth-child(6)  { left: 62%; animation-duration: 13s; animation-delay: 5s; width: 4px; height: 4px; }
+.nieve span:nth-child(7)  { left: 72%; animation-duration: 9s;  animation-delay: 2.5s; }
+.nieve span:nth-child(8)  { left: 82%; animation-duration: 12s; animation-delay: 0.5s; width: 5px; height: 5px; }
+.nieve span:nth-child(9)  { left: 90%; animation-duration: 10s; animation-delay: 4.5s; }
+.nieve span:nth-child(10) { left: 97%; animation-duration: 11s; animation-delay: 1.5s; width: 4px; height: 4px; }
+
+@keyframes caer {
+  to { transform: translateY(110vh) translateX(30px); }
+}
+
+/* ========== CELULARES ========== */
+@media (max-width: 600px) {
+  .tarjetas {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tarjeta {
+    width: 100%;
+    max-width: 380px;
+    flex: none;
+  }
+}
